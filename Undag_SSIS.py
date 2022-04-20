@@ -192,15 +192,15 @@ class Student:
                     
       
         def Delete():
-            if tree.focus()=="":
-                tkinter.messagebox.showerror("SC-SIS","You may select your record to delete.")
-                return
-            id_no = tree.item(tree.focus(),"values")[0]
+            Delete = tkinter.messagebox.askyesno("St. Claire's Student Information System","Are you sure you want to delete this information?")
+            if Delete > 0:
+                id_no = tree.item(tree.focus(),"values")[0]
             
-            self.data.pop(id_no, None)
-            self.Save()
-            tree.delete(tree.focus())
-            tkinter.messagebox.showinfo("SC-SIS","Deleted successfully.")
+                self.data.pop(id_no, None)
+                self.Save()
+                tree.delete(tree.focus())
+                tkinter.messagebox.showinfo("SC-SIS","Deleted successfully.")
+                return
        
 
         def Edit():
